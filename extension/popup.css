@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
-p {
+p,
+input,
+button {
   color: black;
   font-family: "Poppins", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 button {
