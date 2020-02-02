@@ -21,7 +21,11 @@
   }*/
 
 let findLinks = function() {
-    let n = document.links.length;
-    alert(n);
+    let n = document.links;
+    let arr = [];
+    for (var i = 0; i < 3; i++) {
+      arr[i] = n[i].getAttribute("href");
+    }
+    alert(arr[2]);
 }
 findLinks();
