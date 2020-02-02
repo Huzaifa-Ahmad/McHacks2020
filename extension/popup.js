@@ -10,5 +10,3 @@ searchTerm.onclick = function(element) {
   });
   alert(findTheLinks());
 };
-
-//it doesnt work ¯\_(ツ)_/¯
