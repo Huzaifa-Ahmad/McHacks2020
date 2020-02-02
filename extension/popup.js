@@ -10,6 +10,9 @@ searchTerm.onclick = function(element) {
   let term = element.target.value;
   input = document.getElementById("query").value;
   chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-    chrome.tabs.executeScript(tabs[0].id, alert(input));
+    chrome.tabs.executeScript(
+      tabs[0].id,
+      alert("findLinks()")
+    );
   });
 };
