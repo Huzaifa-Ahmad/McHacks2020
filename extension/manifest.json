@@ -1,27 +1,38 @@
 {
-    "name": "PenguinDesk",
-    "version": "0.1",
-    "description": "[description]",
-    "permissions": ["activeTab", "declarativeContent", "storage"],
-    "background": {
-        "scripts": ["background.js"],
-        "persistent": false
+  "name": "PenguinDesk",
+  "version": "0.1",
+  "description": "[description]",
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "storage",
+    "https://api.datamuse.com/words?*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/penguin16.png",
+      "32": "images/penguin32.png",
+      "48": "images/penguin48.png",
+      "128": "images/penguin128.png"
     },
-    "page_action": {
-        "default_popup": "popup.html",
-        "default_icon": {
-            "16": "images/penguin16.png",
-            "32": "images/penguin32.png",
-            "48": "images/penguin48.png",
-            "128": "images/penguin128.png"
-        },
-        "icons": {
-            "16": "images/penguin16.png",
-            "32": "images/penguin32.png",
-            "48": "images/penguin48.png",
-            "128": "images/penguin128.png"
-        }
-    },
-    "options_page": "options.html",
-    "manifest_version": 2
+    "icons": {
+      "16": "images/penguin16.png",
+      "32": "images/penguin32.png",
+      "48": "images/penguin48.png",
+      "128": "images/penguin128.png"
+    }
+  },
+  "options_page": "options.html",
+  "manifest_version": 2
 }

@@ -1,12 +1,12 @@
-const url = "https://api.datamuse.com/words?";
-const queryParams = "rel_syn=";
+let url = "https://api.datamuse.com/words?";
+let queryParams = "rel_syn=";
 
-export const getSynonyms = searchTerm => {
-  const wordQuery = searchTerm;
-  const endpoint = `${url}${queryParams}${wordQuery}`;
-  // console.log(endpoint);
+const getSynonyms = (searchTerm, callback) => {
+  let wordQuery = searchTerm;
+  let endpoint = `${url}${queryParams}${wordQuery}`;
+  console.log(endpoint);
 
-  fetch(endpoint)
+  fetch(endpoint, { cache: "no-cache" })
     .then(
       response => {
         if (response.ok) {
@@ -19,18 +19,22 @@ export const getSynonyms = searchTerm => {
       }
     )
     .then(jsonResponse => {
-      synonymResponse(jsonResponse);
+      callback(synonymResponse(jsonResponse));
     });
 };
 
-const synonymResponse = res => {
-  if (!res || !res.length) {
-    console.log(res.status);
+let synonymResponse = jsonResponse => {
+  if (!jsonResponse || !jsonResponse.length) {
+    console.log("failed");
+    console.log(jsonResponse.status);
     return;
   }
   let wordList = [];
-  for (let i = 0; i < Math.min(res.length, 5); i++) {
-    wordList.push(res[i].word);
+  console.log("Hello");
+  console.log(jsonResponse.length);
+  for (let i = 0; i < Math.min(jsonResponse.length, 5); i++) {
+    wordList.push(jsonResponse[i].word);
   }
-  return wordList;
+  return wordList.join(" ");
 };
+
