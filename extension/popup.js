@@ -7,7 +7,9 @@ chrome.storage.sync.get("term", function(data) {
 });
 
 searchTerm.onclick = function(element) {
-  getSynonyms(document.getElementById("query").value, str => {
+  let q = document.getElementById("query").value;
+  chrome.runtime.sendMessage("query:"+q);
+  getSynonyms(q, str => {
     alert(str);
   });
 };
