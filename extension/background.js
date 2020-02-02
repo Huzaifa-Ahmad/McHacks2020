@@ -12,3 +12,10 @@ chrome.runtime.onInstalled.addListener(function() {
         }]);
     });
 });
+
+chrome.runtime.onMessage.addListener(function(message){
+  if (message.includes("found")) {
+     var url = message.replace("found ","");
+     chrome.tabs.create({ url: url });
+  }
+});

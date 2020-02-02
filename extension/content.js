@@ -11,6 +11,6 @@ let findLinks = function() {
         found = true;
       }
     }
-    if (found) alert(sel);
+    if (found) chrome.runtime.sendMessage("found "+sel);
 }
 findLinks();
