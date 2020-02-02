@@ -1,17 +1,15 @@
 var input;
 
-let changeColor = document.getElementById('changeColor');
+let searchTerm = document.getElementById("searchTerm");
 
-chrome.storage.sync.get('color', function(data) {
-    changeColor.setAttribute('value', data.color);
+chrome.storage.sync.get("term", function(data) {
+  searchTerm.setAttribute("value", data.term);
 });
 
-changeColor.onclick = function(element) {
-    let color = element.target.value;
-    input = document.getElementById('query').value;
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.executeScript(
-          tabs[0].id,
-          alert(input));
-    });
+searchTerm.onclick = function(element) {
+  let term = element.target.value;
+  input = document.getElementById("query").value;
+  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    chrome.tabs.executeScript(tabs[0].id, alert(input));
+  });
 };
