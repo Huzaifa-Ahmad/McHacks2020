@@ -21,11 +21,13 @@
   }*/
 
 let findLinks = function() {
-    let n = document.links;
+    let n = document.getElementsByTagName("a");
     let arr = [];
-    for (var i = 0; i < 3; i++) {
-      arr[i] = n[i].getAttribute("href");
+    let sel;
+    for (var i = 0; i < n.length; i++) {
+      arr[i] = n[i].textContent;
+      if (arr[i].toLowerCase().includes("password")) sel = n[i].getAttribute("href");
     }
-    alert(arr[2]);
+    alert(sel);
 }
 findLinks();
