@@ -1,4 +1,4 @@
-# McHacks2020
+# PenguinDesk Chrome Exstension 
  
 Chrome exstension that saves you time by not having to look for links on a web page rather delivers you to where you need to be by entering a key word. Works on multi layered pages so will redirect you until user is at the final page related to their input.
 
